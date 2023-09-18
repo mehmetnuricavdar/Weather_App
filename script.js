@@ -1,14 +1,16 @@
 (function () {
+
   "use strict";
   const myMap = L.map("myMap");
   let didSearch = false;
+const apiKey = MY_ENV_API_KEY;
 
   const fetchWeather = async (city) => {
     const response = await fetch(
       "https://api.openweathermap.org/data/2.5/weather?q=" +
         city +
         "&units=metric&appid=" +
-        API_KEY
+        apiKey
     );
     let data = await response.json();
     displayWeather(data);
